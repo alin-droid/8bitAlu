@@ -1,0 +1,32 @@
+# add all Verilog source files, separated by spaces
+set sourcefiles { testbench.v counter.v restoring_divider.v register.v fac_cell.v 1bit_invertor.v 8bit_invertor.v 8bit_rca.v 8bit_adder_and_substractor.v result_register.v booth_encoder.v booth_datapath.v booth_selector.v 8bit_booth_multiplicator.v control_unit.v 8bit_alu.v mux2_to_1.v mux4_to_1.v }
+# set name of the top module
+set topmodule tb_alu
+
+###################################################
+#####DO NOT MODIFY THE SCRIPT BELLOW THIS LINE#####
+###################################################
+
+# quit current simulation if any
+quit -sim
+
+# empty the work library if present
+if [file exists "work"] {vdel -all}
+
+#create a new work library
+vlib work
+
+# run the compiler
+if [catch "eval vlog $sourcefiles"] {
+    puts "correct the compilation errors"
+    return
+}
+
+# start simulation
+vsim -voptargs=+acc $topmodule
+
+# add all signals in waveform
+add wave -r /*
+
+# run simulation
+run -all
