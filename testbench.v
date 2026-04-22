@@ -1,7 +1,7 @@
 // ============================================================
-// ALU TESTBENCH V11 ELITE - FULL REWRITE
-// Afiseaza x, y, expected, actual, cicluri
-// Compatibil ModelSim / Verilog-2001
+// This testbench was generated with AI for statistics purposes
+// and for a more complete and complex testing process.
+// It is based on our previous testbench.
 // ============================================================
 
 `timescale 1ns/1ps
